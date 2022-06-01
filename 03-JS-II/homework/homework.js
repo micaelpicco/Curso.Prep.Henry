@@ -179,8 +179,8 @@ function tablaDelSeis(){
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
   var tabla=[];
-  for(var i=0;i<11;i++){
-    tabla.push(6*i) //hay que pushearlo para meterlo adentro    
+  for(var i=0;i<11;i++){ //aca no le puedo poner i<tabla.length porque no conozco la dimension de la tabla
+    tabla.push(6*i) //con push voy metiendo de a un numero en la lista segun va avanzando i    
   }
   return tabla
 }
@@ -200,7 +200,7 @@ function doWhile(numero) {
   //Usar el bucle do ... while.
   var i=0
   do{
-    i=i+1
+    i++
     numero=numero+5
   } 
   while (i<8)
