@@ -60,7 +60,7 @@ function sonIguales(x, y) {
   // Devuelve "true" si "x" e "y" son iguales
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (x === y) { //siempre usar el triple igual para asegurarse
+  if (x === y) { //siempre usar el triple igual cuando estamos comparando, el simple igual es para signar
     return true
   } 
   return false
@@ -71,7 +71,7 @@ function tienenMismaLongitud(str1, str2) {
   // Devuelve "true" si las dos strings tienen la misma longitud
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (str1.length === str2.length){
+  if (str1.length === str2.length){ //tambien se podria haber hecho solo return str1.length === str2.length, porque el programa devuelve un boleano true si es estrictamente igual sino false 
     return true
   }
   return false
@@ -91,7 +91,7 @@ function mayorQueCincuenta(num) {
   // Devuelve "true" si el argumento de la función "num" es mayor que cincuenta
   // De lo contrario, devuelve "false"
   // Tu código:
-  if (num > 50){
+  if (num > 50){ //el profe puso solamente return num >50 y listo.
     return true
   }
   return false
@@ -127,13 +127,13 @@ function elevarAlCuadrado(num) {
   // Devuelve el valor de "num" elevado al cuadrado
   // ojo: No es raiz cuadrada!
   // Tu código:
-  return Math.pow(num,2)
+  return Math.pow(num,2) //tambien se puede hacer return num * num
 }
 
 function elevarAlCubo(num) {
   // Devuelve el valor de "num" elevado al cubo
   // Tu código:
-  return Math.pow(num,3)
+  return Math.pow(num,3) //tambien se puede hacer return num * num * num
 }
 
 function elevar(num, exponent) {
@@ -157,7 +157,7 @@ function redondearHaciaArriba(num) {
 function numeroRandom() {
   //Generar un número al azar entre 0 y 1 y devolverlo
   //Pista: investigá qué hace el método Math.random()
-  return Math.random()
+  return Math.random() //esta funcion genera directamente un num al azar entre 0 y 1 por defecto pero si quiero entre 0 y 100 debo hacer return Math.random()*1
 }
 
 function esPositivo(numero) {
@@ -177,21 +177,21 @@ function agregarSimboloExclamacion(str) {
   // Agrega un símbolo de exclamación al final de la string "str" y devuelve una nueva string
   // Ejemplo: "hello world" pasaría a ser "hello world!"
   // Tu código:
-  return (str + '!')
+  return (`${str}!`)
 }
 
 function combinarNombres(nombre, apellido) {
   // Devuelve "nombre" y "apellido" combinados en una string y separados por un espacio.
   // Ejemplo: "Soy", "Henry" -> "Soy Henry"
   // Tu código:
-  return (nombre + ' ' + apellido)
+  return (nombre + ' ' + apellido)//tambien se puede hacer return ´${nombre} ${apellido}´ es una forma mas moderan y con comillas pero corridas y nos ahorramos de poner los +
 }
 
 function obtenerSaludo(nombre) {
   // Toma la string "nombre" y concatena otras string en la cadena para que tome la siguiente forma:
   // "Martin" -> "Hola Martin!"
   // Tu código:
-  return ('Hola ' + nombre + '!')
+  return ('Hola ' + nombre + '!')//return ('Hola $(nombre)!')
 }
 
 function obtenerAreaRectangulo(alto, ancho) {
@@ -229,16 +229,23 @@ function esVocal(letra){
   //que no se puede procesar el dato mediante el mensaje "Dato incorrecto".
   // Si no es vocal, tambien debe devolver "Dato incorrecto".
   //Escribe tu código aquí
-  if (letra==='a'||letra==='e'||letra==='i'||letra==='o'||letra==='u'){
-    return "Es vocal"
-  }
-  else if (letra.length > 1){
+  if (letra.length > 1){//primero le ponemos esta asi ya si letra es mas de una letra ya tira 'Datos incorrecto' porque return es una donciion de parada
     return "Dato incorrecto"
+  }
+  else if (letra==='a'||letra==='e'||letra==='i'||letra==='o'||letra==='u'){
+    return "Es vocal"
   }
   //aca puede ir o no el else como en todos los anteriores
   return "Dato incorrecto"
 }
 
+//var vocales =/[aeiou]/i //
+//if(/[aeiou]/i.test(letra)){   esto es un regex (devuelve true or false), el i es para que no importe si letra es minuscula o mayusucla
+//                              lo que el .test es buscar si letra existe dentro del regex (dentro del regex se puede pasar cualqueir cosa, si yo quiero el abecedario pongo /[a-z]/i)
+//  return "Es vocal"
+//} else {
+//  return "Dato incorrecto"
+//}
 
 
 // No modificar nada debajo de esta línea

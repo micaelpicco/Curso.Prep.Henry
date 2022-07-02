@@ -5,12 +5,9 @@ function obtenerMayor(x, y) {
   // Devuelve el número más grande
   // Si son iguales, devuelve cualquiera de los dos
   // Tu código:
-  if (x===y){
+  if (x >= y){ 
     return x
   }
-  else if (x>y) {
-    return x 
-  } 
   return y
 }
 
@@ -46,13 +43,16 @@ function saludo(idioma) {
   // Si "idioma" es "ingles", devuelve "Hello!"
   // Si "idioma" no es ninguno de los anteiores o es `undefined` devuelve "Hola!"
   // Tu código:
-  if (idioma==="aleman"){
+  if (idioma === undefined){
+    return "Hola!"
+  }
+  if (idioma === "aleman"){
     return "Guten Tag!"
   }
-  if (idioma==="mandarin") {
+  if (idioma === "mandarin") {//este if tambien puede ser else if
     return "Ni Hao!"
   }
-  else if (idioma==="ingles") {
+  else if (idioma === "ingles") {
     return "Hello!"
   }
   return "Hola!"
@@ -71,7 +71,7 @@ function colors(color) {
     case "red": return "This is red"
     case "green": return "This is green"
     case "orange": return "This is orange"
-    default: return "Color not found"
+    default: return "Color not found" //si o si se usa el default al final cuando usamos switch
   }
 }
 
@@ -103,11 +103,25 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  if (Number.isInteger(numero)){
+  if (Number.isInteger(numero)){ //El método Number.isInteger() determina si el valor pasado es de tipo entero devolviendo true or false
     return true
   }
   return false
 }
+
+//otra forma usando arrows functions
+// function esEntero(numero) {
+//   return (Number.isInteger(numero))  directamente pongo que me returne esto y como lo que esta entre () es true or false entonces ya esta
+// }
+
+//otra forma
+//return (Match.floor(numero)===numero)
+
+//otra forma
+//return (Match.round(numero)===numero)
+
+//otra forma
+//return (numero % 1 === 0) si el numero es entero entonces no tiene residuo por lo tanto devuelve true si se cumple sino false
 
 function fizzBuzz(numero) {
   // Si "numero" es divisible entre 3, devuelve "fizz"
@@ -133,7 +147,7 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
-  if (num1===0 || num2===0 || num3===0){
+  if (num1===0 || num2===0 || num3===0){ //empezar siempre con el error
     return "Error"
     }
   if (num1<0 || num2<0 || num3<0){
@@ -157,8 +171,8 @@ function esPrimo(numero) {
   if (numero===1 || numero===0){
     return false
   }
-  for (var i=2;i<numero;i++)
-    if (numero%i===0){
+  for (var i = 2; i < numero; i++)
+    if (numero % i === 0){
     return false
   }
     return true
@@ -171,16 +185,19 @@ function esVerdadero(valor){
   if (valor===true){
     return "Soy verdadero"
   }
-    return "Soy falso" //no se escriben los dos
+    return "Soy falso" //no es necesario escribir los dos
 }
+
+//directamente escribimos 
+//return (valor === true)
 
 function tablaDelSeis(){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
-  var tabla=[];
-  for(var i=0;i<11;i++){ //aca no le puedo poner i<tabla.length porque no conozco la dimension de la tabla
-    tabla.push(6*i) //con push voy metiendo de a un numero en la lista segun va avanzando i    
+  var tabla = [] //me creo un array vacio
+  for(var i = 0; i < 11; i++){ //aca no le puedo poner i<tabla.length porque no conozco la dimension de la tabla. ponemos 11 porque quiero hasta 60, es decir, el ultimo numero para multiplicar es el 10
+    tabla.push(6 * i) //con push voy metiendo de a un numero en la lista segun va avanzando i    
   }
   return tabla
 }
@@ -194,16 +211,21 @@ function tieneTresDigitos(numero){
   return false
 }
 
+//otra forma
+// function tieneTresDigitos(numero){
+//   return (numero.toString().length === 3)
+// }
+
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
   var i=0
   do{
-    i++
+    i=i+1
     numero=numero+5
   } 
-  while (i<8)
+  while (i<8) //lo que yo hago es: hace todo lo del do MIENTRAS i sea menor a 8
     return numero
 }
 
